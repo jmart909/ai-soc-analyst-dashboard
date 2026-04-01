@@ -1,12 +1,7 @@
-import os
-from dotenv import load_dotenv
+import streamlit as st
 from openai import OpenAI
 
-# Load API key from .env
-load_dotenv()
-api_key = os.getenv("OPENAI_API_KEY")
-
-client = OpenAI(api_key=api_key)
+client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
 
 
 def analyze_alert(alert, logs):
